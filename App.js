@@ -7,8 +7,6 @@ import Gate from "./app/screen/gate";
 import Home from "./app/screen/home";
 import Plannedvisitorslist from "./app/screen/plannedvisitorslist";
 import Visitorsdetails from "./app/screen/visitorsdetails";
-import 'react-native-gesture-handler'; // Must be at the top for gesture handling
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Notification from "./app/screen/notification";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Createnewvisitor from "./app/screen/unplannedVisitors/createnewvisitor";
@@ -21,7 +19,6 @@ import Checkoutlist from "./app/screen/allvisitorscheckout/checkoutlist";
 import Checkoutvisitordetail from "./app/screen/allvisitorscheckout/checkoutvisitordetail";
 import Completedvisitorslist from "./app/screen/completedvisitors/completedvisitorslist";
 import Myaccount from "./app/screen/drawer/myaccount";
-import Historypage from "./app/screen/drawer/history";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,14 +27,7 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <>
-
-<GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
-        <Drawer.Navigator>
-          <Drawer.Screen name="home" component={Home} options={{ title: 'Home' }} />
-          <Drawer.Screen name="myaccount" component={Myaccount} options={{ title: 'My Account' }} />
-          <Drawer.Screen name="history" component={Historypage} options={{ title: 'History' }} />
-        </Drawer.Navigator>
         <Stack.Navigator initialRouteName="login">
           <Stack.Screen
             name="login"
@@ -138,9 +128,6 @@ export default function App() {
 
         </Stack.Navigator>
       </NavigationContainer>
-    </GestureHandlerRootView>
-
-      
       <StatusBar style="auto" />
     </>
   );
